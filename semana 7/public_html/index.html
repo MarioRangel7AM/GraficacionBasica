@@ -214,10 +214,10 @@
         squareVertexPositionBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
         vertices = [
-             1.0,  1.0,  0.0,
-            -1.0,  1.0,  0.0,
+            -1.0, -1.0,  0.0,
              1.0, -1.0,  0.0,
-            -1.0, -1.0,  0.0
+            -1.0,  1.0,  0.0,
+             1.0,  1.0,  0.0
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
         squareVertexPositionBuffer.itemSize = 3;
@@ -226,14 +226,19 @@
         squareVertexTextureCoordBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER,squareVertexTextureCoordBuffer);
         var texture = [
-            1.0, 0.0, 0.0, 1.0,
-            0.0, 1.0, 0.0, 1.0,
-            0.0, 0.0, 1.0, 1.0,
-            1.0, 0.0, 0.0, 1.0
+            0.0,0.0,
+            1.0,0.0,
+            0.0,1.0,
+            1.0,1.0,
+            
+            0.0,0.0,
+            1.0,0.0,
+            1.0,1.0,
+            1.0,1.0
         ];
         gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(texture),gl.STATIC_DRAW);
         squareVertexTextureCoordBuffer.itemSize = 3;
-        squareVertexTextureCoordBuffer.numItems = 4;
+        squareVertexTextureCoordBuffer.numItems = 8;
     }
 
     var xRot = 0;
@@ -299,7 +304,7 @@
         initBuffers();
         initTexture();
 
-        gl.clearColor(0.5, 0.5, 0.5, 1.0);
+        gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.enable(gl.DEPTH_TEST);
 
         //drawScene();
